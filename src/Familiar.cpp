@@ -6,11 +6,11 @@
 
 namespace Familiar {
 
-    int Application::run() {
-        TerminalInterface ti;
+int Application::run() {
+    TerminalInterface ti;
 
-        ti.run();
-        return 0;
-    }
-
+    ti.run();
+    return 0;
 }
+
+} // namespace Familiar

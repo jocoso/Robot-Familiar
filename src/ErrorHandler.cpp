@@ -5,10 +5,9 @@
 #include <iostream>
 
 namespace Familiar {
-    void reportError(const std::string& msg)
-    {
-        std::cerr << "ERROR: " << msg << '\n';
-    }
-} // Familiar
+void reportError(const std::string &msg) {
+    std::cerr << "ERROR: " << msg << '\n';
+}
+} // namespace Familiar
 
 #endif // FAMILIAR_ERROR_HANDLER_H

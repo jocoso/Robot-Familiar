@@ -4,46 +4,52 @@
 #include <string>
 #include <vector>
 
-#include "persistence/ProjectManager.h"
+#include "ProjectManager.h"
+
+// TerminalInterface.cpp
+// createProject(), 
+// createTask(), 
+// getSelectedProject()
 
 namespace Familiar {
-    const int MAX_NUMBER_OF_OPTIONS = 5;
-    class TerminalInterface {
-        public:
-            void run();
-            
-        private:
-            bool isRunning = true;
-            ProjectManager pm;
-            Project* selectedProject = nullptr;
-            
-            const std::vector<std::unique_ptr<Project>>&
-            getProjectList();
-            
-            void showTitle() const;
-            void showMenu() const;
-            void printReport() const;
-            void printSelectedProjectTask();
-            void printProject(const Project& p);
-            void printTasks(const std::vector<Task>& t);
+const int MAX_NUMBER_OF_OPTIONS = 5;
+class TerminalInterface {
+  public:
+    void run();
+
+  private:
+    bool isRunning = true;
+    ProjectManager pm;
+    Project *selectedProject = nullptr;
+
+    const std::vector<std::unique_ptr<Project>> &getProjectList();
     
-            int readNumber();
-            void readWord(std::string& output);
-            int readMenuChoice();
-            
-            bool createProject();
-            bool createTask();
-            bool handleChoice(int choice);
-            void killSwitch();
+    //
+    bool createProject();
+    bool createTask();
+    Project *getSelectedProject();
+    //
 
-            bool saveData();
-            bool loadData();
-            void loadProjectList(std::ifstream& datafile);
-            std::string saveProjectList(std::ofstream& datafile);
+    void showTitle() const;
+    void showMenu() const;
+    void printReport() const;
+    void printSelectedProjectTask();
+    void printProject(const Project &p);
+    void printTasks(const std::vector<Task> &t);
 
-            Project* getSelectedProject();
-  
-    };
+    int readNumber();
+    void readWord(std::string &output);
+    int readMenuChoice();
+
+    bool handleChoice(int choice);
+    void killSwitch();
+
+    bool saveData();
+    bool loadData();
+    void loadProjectList(std::ifstream &datafile);
+    std::string saveProjectList(std::ofstream &datafile);
+
+};
 
 } // namespace Familiar
 
